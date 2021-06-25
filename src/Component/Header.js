@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
    },
      toolbar: {
     display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
 
 
@@ -46,10 +46,7 @@ const headersData1 = [
     label: "WORK",
     href: "/work",
   },
-];
-  const headersData2 = [
-
-  {
+    {
     label: "CONTACT",
     href: "/contact",
   },
@@ -58,23 +55,28 @@ const headersData1 = [
     href: "/blog",
   },
 ];
+  const headersData2 = [
+
+
+];
 const  Header = () => {
   const {header,logoPosition,menuButton,toolbar} = useStyles();
   const displayDesktop = () => {
     return <Toolbar className={toolbar}>
-            <div>{getMenuButtons1()}</div>
+                                 <img src={logo} alt="logo" style={{height:70,width:70,borderRadius:50}} />
 
-        {slogo}        
-      <div>{getMenuButtons2()}</div>
+            <div>{getMenuButtons()}</div>
+
+        {/* {slogo}        
+      <div>{getMenuButtons2()}</div> */}
 </Toolbar>;
   };
     const slogo = (
     <Typography  className={logoPosition}>
-     <img src={logo} alt="logo" style={{height:70,width:70,borderRadius:50,}} />
 
     </Typography>
   );
-    const getMenuButtons1 = () => {
+    const getMenuButtons= () => {
     return headersData1.map(({ label, href }) => {
       return (
         <Button
@@ -90,22 +92,22 @@ const  Header = () => {
       );
     });
   };
-      const getMenuButtons2 = () => {
-    return headersData2.map(({ label, href }) => {
-      return (
-        <Button
-          {...{
-      key: label,
-      color: "inherit",
-      to: href,
-      component: RouterNav,
-      className: menuButton          }}
-        >
-          {label}
-        </Button>
-      );
-    });
-  };
+  //     const getMenuButtons2 = () => {
+  //   return headersData2.map(({ label, href }) => {
+  //     return (
+  //       <Button
+  //         {...{
+  //     key: label,
+  //     color: "inherit",
+  //     to: href,
+  //     component: RouterNav,
+  //     className: menuButton          }}
+  //       >
+  //         {label}
+  //       </Button>
+  //     );
+  //   });
+  // };
      
   return (
      <header>
