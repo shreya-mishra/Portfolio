@@ -6,39 +6,71 @@
   height: 40vmin;
   pointer-events: none;
 }
-.contact{
-    display:flex;
-    justify-content:space-around;
-    flex-direction: column;
-    margin:0 200px 0 250px;
-   
-    
-
+.contact {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 200px 0 250px;
 }
-.mainForm{
-    width:65%;
-    padding:10px;
+
+@media only screen and (max-width: 1021px) {
+  .myprofile {
+    max-width: "100%";
+    margin-right: "20%";
+  }
+}
+.myprofile {
+  /* margin-left: 60; */
+  max-width: "100%";
+  margin-bottom: "50px";
+  transform: rotate(5deg);
+}
+
+@media only screen and (max-width: 1021px) {
+  .aboutpart {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-family: "Poppins",sans-serif;
-    font-weight: 300;
-        text-align: center;
-
-       
+  }
 }
-.form{
-    display:flex;
+.aboutpart {
+  display: flex;
+}
+
+.mainForm {
+  width: 65%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 130%;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-left: 90px;
+}
+.menuButtons {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+}
+@media only screen and (max-width: 1021px) {
+  .contactsection {
+    display: flex;
     flex-direction: column;
-    padding:20px;
-    width:130%;
-    justify-content: space-evenly;
-    text-align: center;
-        margin-left: 60px;
-
-
+    justify-content: space-around;
+  }
 }
-
+.contactsection {
+  display: flex;
+  justify-content: space-around;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

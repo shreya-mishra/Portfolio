@@ -1,118 +1,91 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import  Typography  from "@material-ui/core/Typography";
-import { Link as RouterLink,  NavLink as RouterNav, } from "react-router-dom";
-
-// import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
-import logo from '../Images/logo.jpg'
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import { Link as RouterLink, NavLink as RouterNav } from "react-router-dom";
+import logo from "../Images/logo.jpg";
+import "../App.css";
 
 const useStyles = makeStyles(() => ({
-    header: {
-      backgroundColor: "black",
+  header: {
+    backgroundColor: "black",
     paddingRight: "79px",
     paddingLeft: "118px",
-   },
-     logoPosition: {
-    fontFamily: "Work Sans, sans-serif",
- 
   },
-  menuButton: {
+  logoPosition: {
+    fontFamily: "Work Sans, sans-serif",
+  },
 
-      fontFamily: "Open Sans, sans-serif",
-      fontWeight: 700,
-      size: "18px",
-      color:"white",
-      // marginLeft:"90%",
-    
-   },
-     toolbar: {
+  toolbar: {
     display: "flex",
     justifyContent: "space-between",
   },
-
-
 }));
 
-const headersData1 = [
+const headersData = [
   {
     label: "ABOUT",
-    href: "/about",
+    href: "#about",
   },
   {
     label: "WORK",
-    href: "/work",
+    href: "#work",
   },
-    {
+  {
     label: "CONTACT",
-    href: "/contact",
+    href: "#contact",
   },
   {
     label: "BLOG",
-    href: "/blog",
+    href: "#blog",
   },
 ];
-  const headersData2 = [
 
-
-];
-const  Header = () => {
-  const {header,logoPosition,menuButton,toolbar} = useStyles();
+const Header = () => {
+  const { header, toolbar } = useStyles();
   const displayDesktop = () => {
-    return <Toolbar className={toolbar}>
-                                 <img src={logo} alt="logo" style={{height:70,width:70,borderRadius:50}} />
+    return (
+      <Toolbar className={toolbar}>
+        <a href='#home'>
+          {" "}
+          <img
+            src={logo}
+            alt='logo'
+            style={{ height: 70, width: 70, borderRadius: 50 }}
+          />
+        </a>
 
-            <div>{getMenuButtons()}</div>
-
-        {/* {slogo}        
-      <div>{getMenuButtons2()}</div> */}
-</Toolbar>;
+        <div className={{ display: "flex", alignItems: "flexStart" }}>
+          <a
+            style={{ textDecoration: "none", color: "white", margin: 10 }}
+            href='#about'>
+            ABOUT
+          </a>
+          <a
+            style={{ textDecoration: "none", color: "white", margin: 10 }}
+            href='#work'>
+            WORK
+          </a>
+          <a
+            style={{ textDecoration: "none", color: "white", margin: 10 }}
+            href='#contact'>
+            CONTACT
+          </a>
+          <a
+            style={{ textDecoration: "none", color: "white", margin: 10 }}
+            href='#blog'>
+            BLOG
+          </a>
+        </div>
+      </Toolbar>
+    );
   };
-    const slogo = (
-    <Typography  className={logoPosition}>
 
-    </Typography>
-  );
-    const getMenuButtons= () => {
-    return headersData1.map(({ label, href }) => {
-      return (
-        <Button
-          {...{
-      key: label,
-      color: "inherit",
-      to: href,
-      component: RouterNav,
-      className: menuButton          }}
-        >
-          {label}
-        </Button>
-      );
-    });
-  };
-  //     const getMenuButtons2 = () => {
-  //   return headersData2.map(({ label, href }) => {
-  //     return (
-  //       <Button
-  //         {...{
-  //     key: label,
-  //     color: "inherit",
-  //     to: href,
-  //     component: RouterNav,
-  //     className: menuButton          }}
-  //       >
-  //         {label}
-  //       </Button>
-  //     );
-  //   });
-  // };
-     
   return (
-     <header>
+    <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
     </header>
   );
-}
-export default Header
+};
+export default Header;
