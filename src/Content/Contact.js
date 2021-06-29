@@ -5,7 +5,6 @@ import {
   TextField,
   TextareaAutosize,
 } from "@material-ui/core";
-import {} from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -13,7 +12,10 @@ import Fade from "@material-ui/core/Fade";
 import contact from "../Images/say-hello.png";
 import "../App.css";
 import emailjs from "emailjs-com";
-
+import { motion } from "framer-motion";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -27,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
   },
 }));
+const backdrop = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
 
 const Contact = () => {
   const classes = useStyles();
@@ -54,7 +60,7 @@ const Contact = () => {
       .sendForm(
         "service_m4k28xh",
         "template_7fbj31c",
-        e.target,
+        e.target.value,
         "user_gx9iEPQmQaF7k4pjImvwZ"
       )
       .then(
@@ -89,6 +95,8 @@ const Contact = () => {
                 width: 250,
                 backgroundColor: "#39B54A",
                 color: "white",
+
+                boxShadow: "0px 0px 8px rgb(0,0,0,0.44)",
               }}>
               Request a Project
             </Button>
@@ -156,31 +164,44 @@ const Contact = () => {
             </a>
             <div style={{ height: 20 }}></div>
             <h1>FOLLOW ME ONLINE</h1>
-            <ul>
-              <li>
-                <i class='fa-li fa fa-plus'></i>
+
+            <ul class='fa-ul'>
+              <motion.li
+                whileHover={{ scale: 1.2, originX: -1, color: "#f8e112" }}
+                transition={{ type: "spring", stiffness: 300 }}>
+                <span class='fa-li'>
+                  <GitHubIcon style={{ color: "#39B54A", fontSize: 20 }} />
+                </span>
                 <a
                   href='https://github.com/shreya-mishra'
                   style={{ textDecoration: "none", color: "#39B54A" }}>
                   github
                 </a>
-              </li>
-              <li>
-                <i class='fa-li fa fa-plus'></i>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.2, originX: -1, color: "#f8e112" }}
+                transition={{ type: "spring", stiffness: 300 }}>
+                <span class='fa-li'>
+                  <LinkedInIcon style={{ color: "#39B54A", fontSize: 20 }} />
+                </span>
                 <a
                   href='https://www.linkedin.com/in/shreya-mishra-2270901a5/'
                   style={{ textDecoration: "none", color: "#39B54A" }}>
                   linkedin
                 </a>
-              </li>
-              <li>
-                <i class='fa-li fa fa-plus'></i>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.2, originX: -1, color: "#f8e112" }}
+                transition={{ type: "spring", stiffness: 300 }}>
+                <span class='fa-li'>
+                  <FacebookIcon style={{ color: "#39B54A", fontSize: 20 }} />
+                </span>
                 <a
                   href='https://www.facebook.com/profile.php?id=100011450839213'
                   style={{ textDecoration: "none", color: "#39B54A" }}>
                   facebook
                 </a>
-              </li>
+              </motion.li>
             </ul>
           </div>
         </div>

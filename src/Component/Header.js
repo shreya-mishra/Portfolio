@@ -2,10 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Button from "@material-ui/core/Button";
-import { Link as RouterLink, NavLink as RouterNav } from "react-router-dom";
 import logo from "../Images/logo.jpg";
 import "../App.css";
+import { motion } from "framer-motion";
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -47,14 +46,22 @@ const Header = () => {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        <a href='#home'>
-          {" "}
-          <img
-            src={logo}
-            alt='logo'
-            style={{ height: 70, width: 70, borderRadius: 50 }}
-          />
-        </a>
+        <motion.div
+          whileHover={{ scale: 1.2, rotate: 70 }}
+          whileTap={{
+            scale: 0.8,
+            rotate: -90,
+            borderRadius: "100%",
+          }}>
+          <a href='#home'>
+            {" "}
+            <img
+              src={logo}
+              alt='logo'
+              style={{ height: 70, width: 70, borderRadius: 50 }}
+            />
+          </a>
+        </motion.div>
 
         <div className={{ display: "flex", alignItems: "flexStart" }}>
           <a
